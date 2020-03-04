@@ -13,7 +13,6 @@ function App() {
   }
 
   function addButton(e){
-    // console.log('Text Input ', toDoItems)
     toDoItems.push({
       label : textInput,
       isDone : false
@@ -24,7 +23,14 @@ function App() {
   }
 
   function handleCheckbox(e, index){
-    e.preventDefault()
+    if(e.target.value === 'false'){
+      const tempItem = [...toDoItems]
+      tempItem[index] = {
+        label : tempItem[index].label,
+        isDone : !tempItem[index].isDone
+      }
+      setToDoItems(tempItem)
+    }
   }
 
   return (
