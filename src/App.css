@@ -42,7 +42,6 @@
   margin-top: 10px;
   flex: 1;
   width: 100%;
-
 }
 .listItems{
   border : 0.5px rgba(0, 0, 0, 0.2) solid;
@@ -51,6 +50,8 @@
   /* padding-top: 10px;
   padding-bottom: 10px; */
   padding: 7px;
+  display: flex;
+  justify-content: space-between;
 }
 .completedTask{
   

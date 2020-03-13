@@ -25,12 +25,19 @@ function App() {
   function handleCheckbox(e, index){
     if(e.target.value === 'false'){
       const tempItem = [...toDoItems]
-      tempItem[index] = {
-        label : tempItem[index].label,
-        isDone : !tempItem[index].isDone
-      }
+      tempItem[index].isDone = !tempItem[index].isDone
+      setToDoItems(tempItem)
+    }else{
+      const tempItem = [...toDoItems]
+      tempItem[index].isDone = !tempItem[index].isDone
       setToDoItems(tempItem)
     }
+  }
+
+  function handleDelete(e, index){
+    const tempItem = [...toDoItems]
+    tempItem.splice(index,1)
+    setToDoItems(tempItem)
   }
 
   return (
@@ -58,6 +65,7 @@ function App() {
                 <div className={item.isDone ? 'listItems completedTask' : 'listItems'}>
                     <input type='checkbox' value={item.isDone} checked={item.isDone} onChange={(e)=>handleCheckbox(e, index)}/>
                     <label> {item.label} </label>
+                    <button onClick = {(e) => handleDelete(e, index)}> Delete </button>
                 </div>
                 )
               })
